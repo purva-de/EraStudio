@@ -74,16 +74,8 @@
         </ul>
       </nav>
 
-      <!-- Inquire Action -->
+      <!-- Header Actions (Mobile Hamburger Toggle) -->
       <div class="header-actions">
-        <a href="#contact" class="btn-primary nav-inquire-btn" aria-label="Inquire about architectural or interior commissions">
-          <span class="btn-text">Inquire</span>
-          <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </a>
-
         <!-- Mobile Hamburger Toggle -->
         <button id="mobileNavToggle" class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDrawer">
           <span></span>
@@ -872,7 +864,7 @@
 
               <div class="stage-action-row">
                 <a id="servicePreviewCta" href="#contact" class="btn-primary" data-typology="Residential Architecture">
-                  Inquire This Discipline
+                  Contact Studio
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
@@ -930,124 +922,104 @@
     <!-- ====================================================================
          7. Minimalist Contact Section
          ==================================================================== -->
-    <section class="section contact-section" id="contact" aria-label="Studio Contact and Inquiries">
+    <section class="section contact-section" id="contact" aria-label="Studio Contact and Communication Channels">
       <div class="container">
         <div class="section-header-flex reveal">
           <div>
             <span class="section-label">Get in Touch</span>
             <h2 class="section-title">Contact</h2>
           </div>
-          <p style="max-width: 440px; font-size: var(--text-sm); color: var(--text-secondary);">
-            Inquire regarding new architectural builds, interior transformations, or spatial consultations.
+          <p style="max-width: 480px; font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.7;">
+            Connect directly with our atelier for bespoke architectural builds, interior transformations, or spatial consultations.
           </p>
         </div>
 
-        <div class="contact-layout">
-          <!-- Left Info Column -->
-          <div class="contact-info-column reveal stagger-1">
-            <div class="contact-info-block">
-              <span class="contact-info-label">Era Design Studio</span>
-              <p class="contact-info-value" style="font-family: var(--font-serif); font-size: 1.35rem;">
-                Architecture & Interior Design
-              </p>
+        <div class="contact-cards-grid reveal stagger-1">
+          <!-- Card 1: Studio Atelier & Address -->
+          <article class="contact-card">
+            <div class="contact-card-header">
+              <span class="contact-info-label">Studio Atelier</span>
+              <h3 class="contact-card-title">Era Design Studio</h3>
+              <p class="contact-card-desc">Architecture & Interior Design</p>
             </div>
-
-            <div class="contact-info-block">
-              <span class="contact-info-label">Address</span>
+            <div class="contact-card-content">
               <address class="contact-info-value" style="font-style: normal;">
-                <a href="https://maps.app.goo.gl/ZtSinWBzJZDc4VK57?g_st=ic" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="Visit Era Design Studio location on Google Maps">
+                <a href="https://maps.app.goo.gl/ZtSinWBzJZDc4VK57?g_st=ic" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="Open Era Design Studio in Google Maps">
                   Era Design Studio Atelier<br />
                   <span>Open in Google Maps ↗</span>
                 </a>
               </address>
-              <div style="margin-top: var(--space-1);">
-                <a href="https://maps.app.goo.gl/ZtSinWBzJZDc4VK57?g_st=ic" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Open Studio Location on Google Maps">View Studio Location ↗</a>
-              </div>
             </div>
+            <div class="contact-card-footer">
+              <a href="https://maps.app.goo.gl/ZtSinWBzJZDc4VK57?g_st=ic" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Open Studio Location on Google Maps">
+                <span>View on Maps</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </a>
+            </div>
+          </article>
 
-            <div class="contact-info-block">
-              <span class="contact-info-label">Email</span>
+          <!-- Card 2: Direct Email -->
+          <article class="contact-card">
+            <div class="contact-card-header">
+              <span class="contact-info-label">Email Communications</span>
+              <h3 class="contact-card-title">Direct Mail</h3>
+              <p class="contact-card-desc">Reach our team directly for commissions & briefs.</p>
+            </div>
+            <div class="contact-card-content">
               <p class="contact-info-value">
                 <a href="mailto:eradesignstudio25@gmail.com" class="contact-link" aria-label="Email Era Design Studio">eradesignstudio25@gmail.com</a>
               </p>
             </div>
+            <div class="contact-card-footer">
+              <a href="mailto:eradesignstudio25@gmail.com" class="social-link" aria-label="Send email to Era Design Studio">
+                <span>Compose Email</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </a>
+            </div>
+          </article>
 
-            <div class="contact-info-block">
-              <span class="contact-info-label">Mobile / Telephone</span>
-              <p class="contact-info-value">
+          <!-- Card 3: Mobile & Phone -->
+          <article class="contact-card">
+            <div class="contact-card-header">
+              <span class="contact-info-label">Direct Calling</span>
+              <h3 class="contact-card-title">Mobile Lines</h3>
+              <p class="contact-card-desc">Speak directly with our team during atelier hours.</p>
+            </div>
+            <div class="contact-card-content">
+              <p class="contact-info-value" style="display: flex; flex-direction: column; gap: var(--space-1);">
                 <a href="tel:+917517572791" class="contact-link" aria-label="Call Era Studio at +91 75175 72791">+91 75175 72791</a>
-                <span style="color: var(--text-muted); margin: 0 var(--space-1);">/</span>
                 <a href="tel:+917823029267" class="contact-link" aria-label="Call Era Studio at +91 78230 29267">+91 78230 29267</a>
               </p>
             </div>
-
-            <div class="contact-info-block">
-              <span class="contact-info-label">Social</span>
-              <div class="social-links">
-                <a href="https://www.instagram.com/era_studio_work?stkn=MXhnNXUyaHRsZHgzZQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Follow Era Studio on Instagram">
-                  Instagram (@era_studio_work) ↗
-                </a>
-              </div>
+            <div class="contact-card-footer">
+              <a href="tel:+917517572791" class="social-link" aria-label="Call Era Studio primary phone line">
+                <span>Call Primary Line</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </a>
             </div>
-          </div>
+          </article>
 
-          <!-- Right Form Column -->
-          <div class="contact-form-wrap reveal stagger-2">
-            <form id="studioContactForm" novalidate aria-label="Studio Inquiry Form">
-              <div class="form-grid">
-                <div class="input-group">
-                  <label for="clientName" class="input-label">Name *</label>
-                  <input type="text" id="clientName" name="name" class="input-control" required placeholder="Your name" />
-                </div>
-
-                <div class="input-group">
-                  <label for="clientEmail" class="input-label">Email *</label>
-                  <input type="email" id="clientEmail" name="email" class="input-control" required placeholder="Your email" />
-                </div>
-
-                <div class="input-group">
-                  <label for="clientPhone" class="input-label">Phone *</label>
-                  <input type="tel" id="clientPhone" name="phone" class="input-control" required placeholder="Phone number" />
-                </div>
-
-                <div class="input-group">
-                  <label for="projectType" class="input-label">Project Type *</label>
-                  <select id="projectType" name="type" class="select-control" required>
-                    <option value="" disabled selected>Select typology</option>
-                    <option value="Residential Architecture">Residential Architecture</option>
-                    <option value="Interior Design">Interior Design</option>
-                    <option value="Commercial Space">Commercial Space</option>
-                    <option value="Joinery & Space Planning">Joinery & Space Planning</option>
-                    <option value="Design Consultation">Design Consultation</option>
-                  </select>
-                </div>
-
-                <div class="input-group form-field-full">
-                  <label for="clientMessage" class="input-label">Message *</label>
-                  <textarea id="clientMessage" name="message" class="textarea-control" required placeholder="Briefly describe your project, site location, or scope..."></textarea>
-                </div>
-              </div>
-
-              <div class="form-submit-row">
-                <p class="form-privacy-note">All project details are kept strictly confidential.</p>
-                <button type="submit" id="formSubmitBtn" class="btn-primary">
-                  Send Inquiry
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </button>
-              </div>
-
-              <div id="formSuccessBanner" class="form-success-banner" role="status" aria-live="polite">
-                <div class="form-success-icon" aria-hidden="true">✓</div>
-                <div>
-                  <h4 class="form-success-title">Inquiry Sent</h4>
-                  <p class="form-success-desc">Thank you. We will review your message and reply promptly.</p>
-                </div>
-              </div>
-            </form>
-          </div>
+          <!-- Card 4: Social & Instagram -->
+          <article class="contact-card">
+            <div class="contact-card-header">
+              <span class="contact-info-label">Social Portfolio</span>
+              <h3 class="contact-card-title">Instagram</h3>
+              <p class="contact-card-desc">Follow ongoing site projects, materials & updates.</p>
+            </div>
+            <div class="contact-card-content">
+              <p class="contact-info-value">
+                <a href="https://www.instagram.com/era_studio_work?stkn=MXhnNXUyaHRsZHgzZQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="Visit Era Studio on Instagram">
+                  @era_studio_work
+                </a>
+              </p>
+            </div>
+            <div class="contact-card-footer">
+              <a href="https://www.instagram.com/era_studio_work?stkn=MXhnNXUyaHRsZHgzZQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Follow Era Studio on Instagram">
+                <span>View Instagram</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </a>
+            </div>
+          </article>
         </div>
       </div>
     </section>

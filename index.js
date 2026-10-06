@@ -274,7 +274,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initInteractiveServices();
   initCustomCursor();
   initMobileNavigation();
-  initContactForm();
   initScrollReveals();
   initSmoothScrollLinks();
   initHeroVideo();
@@ -817,52 +816,6 @@ function initMobileNavigation() {
 }
 
 // --------------------------------------------------------------------------
-// 11. Contact Form Controller
-// --------------------------------------------------------------------------
-function initContactForm() {
-  const form = document.getElementById("studioContactForm");
-  const successBanner = document.getElementById("formSuccessBanner");
-  const submitBtn = document.getElementById("formSubmitBtn");
-
-  if (!form) return;
-
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
-
-    if (submitBtn) {
-      submitBtn.disabled = true;
-      submitBtn.textContent = "Sending...";
-    }
-
-    setTimeout(() => {
-      form.reset();
-      if (submitBtn) {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = `
-          Send Inquiry
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        `;
-      }
-
-      if (successBanner) {
-        successBanner.classList.add("active");
-        successBanner.scrollIntoView({ behavior: "smooth", block: "nearest" });
-
-        setTimeout(() => {
-          successBanner.classList.remove("active");
-        }, 6000);
-      }
-    }, 500);
-  });
-}
 
 // --------------------------------------------------------------------------
 // 12. Scroll-Triggered Reveal Animations
