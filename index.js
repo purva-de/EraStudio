@@ -800,6 +800,20 @@ function initMobileNavigation() {
     });
   });
 
+  // Close on Escape key press
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && drawer.classList.contains("open")) {
+      closeDrawer();
+    }
+  });
+
+  // Automatically close drawer if resized above tablet breakpoint
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 1024 && drawer.classList.contains("open")) {
+      closeDrawer();
+    }
+  }, { passive: true });
+
   function openDrawer() {
     drawer.classList.add("open");
     toggleBtn.classList.add("open");
