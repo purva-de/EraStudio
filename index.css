@@ -647,6 +647,7 @@ body.cursor-hover .cursor-ring {
   z-index: 3;
   width: 100%;
   color: #FFFFFF;
+  transition: transform var(--transition-smooth);
 }
 
 .hero-meta-badge {
@@ -2375,6 +2376,15 @@ body.cursor-hover .cursor-ring {
     display: none !important;
   }
 
+  .hero-section {
+    min-height: 90vh;
+    padding-bottom: clamp(64px, 12vh, 96px);
+  }
+
+  .hero-content {
+    transform: translateY(-28px);
+  }
+
   .selected-works-grid,
   .filtered-portfolio-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -2428,7 +2438,11 @@ body.cursor-hover .cursor-ring {
   .hero-section {
     min-height: 88vh;
     padding-top: calc(var(--header-height) + var(--space-4));
-    padding-bottom: var(--space-6);
+    padding-bottom: clamp(56px, 10vh, 80px);
+  }
+
+  .hero-content {
+    transform: translateY(-34px);
   }
 
   .stream-group .project-card {
@@ -2569,9 +2583,13 @@ body.cursor-hover .cursor-ring {
   }
 
   .hero-section {
-    min-height: 84vh;
+    min-height: 86vh;
     padding-top: calc(var(--header-height) + var(--space-2));
-    padding-bottom: var(--space-4);
+    padding-bottom: clamp(48px, 8vh, 72px);
+  }
+
+  .hero-content {
+    transform: translateY(-38px);
   }
 
   .hero-title-era {
