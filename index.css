@@ -1818,8 +1818,19 @@ body.cursor-hover .cursor-ring {
   line-height: 1.6;
 }
 
-.contact-info-value a:hover {
+.contact-info-value a,
+.contact-link {
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--border-subtle);
+  transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
+}
+
+.contact-info-value a:hover,
+.contact-link:hover {
   color: var(--accent);
+  text-decoration-color: var(--accent);
 }
 
 .social-links {
