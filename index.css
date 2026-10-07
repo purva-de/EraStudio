@@ -564,7 +564,7 @@ body.cursor-hover .cursor-ring {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: var(--space-12) var(--space-4) var(--space-6);
+  padding: calc(var(--space-3) + env(safe-area-inset-top, 0px)) var(--space-4) calc(var(--space-4) + env(safe-area-inset-bottom, 0px));
   opacity: 0;
   visibility: hidden;
   overflow-y: auto;
@@ -575,6 +575,77 @@ body.cursor-hover .cursor-ring {
 .mobile-drawer.open {
   opacity: 1;
   visibility: visible;
+}
+
+.mobile-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.mobile-drawer-close-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 8px 14px;
+  background: rgba(37, 107, 92, 0.25);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-sm);
+  color: var(--accent);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+  transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+  touch-action: manipulation;
+}
+
+.mobile-drawer-close-btn:hover,
+.mobile-drawer-close-btn:focus-visible {
+  background-color: var(--accent);
+  color: var(--primary-deep);
+  border-color: var(--accent);
+  box-shadow: 0 4px 14px rgba(197, 155, 67, 0.35);
+}
+
+.mobile-drawer-close-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.mobile-drawer-close-btn svg {
+  display: block;
+  stroke: currentColor;
+  transition: transform var(--transition-fast);
+}
+
+.mobile-drawer-close-btn:hover svg {
+  transform: rotate(90deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-drawer-close-btn:hover svg {
+    transform: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .mobile-drawer-close-btn .drawer-close-text {
+    display: none;
+  }
+  .mobile-drawer-close-btn {
+    padding: 8px;
+    width: 44px;
+    height: 44px;
+  }
 }
 
 .mobile-nav-menu {
