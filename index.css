@@ -1223,6 +1223,476 @@ body.cursor-hover .cursor-ring {
 }
 
 /* --------------------------------------------------------------------------
+   7B. Our Commercial Expertise Section (Turnkey Commercial & Cafeteria Works)
+   -------------------------------------------------------------------------- */
+.commercial-section {
+  position: relative;
+  background-color: #061914;
+  background-image: 
+    radial-gradient(circle at 18% 22%, rgba(37, 107, 92, 0.32) 0%, transparent 55%),
+    radial-gradient(circle at 82% 35%, rgba(197, 155, 67, 0.16) 0%, transparent 50%),
+    linear-gradient(180deg, #051612 0%, #08261F 50%, #051612 100%);
+  border-top: 1px solid var(--border-accent);
+  border-bottom: 1px solid var(--border-accent);
+  padding-top: var(--space-10);
+  padding-bottom: var(--space-10);
+  overflow: hidden;
+}
+
+.commercial-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 240px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--palette-gold), transparent);
+  pointer-events: none;
+}
+
+/* Editorial Header Split Layout (Text Left / Clients Card Right) */
+.commercial-header-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: var(--space-6);
+  align-items: stretch;
+  margin-bottom: var(--space-8);
+}
+
+.commercial-intro-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.commercial-badge-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-bottom: var(--space-2);
+}
+
+.commercial-badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--palette-gold);
+  box-shadow: 0 0 10px var(--palette-gold), 0 0 4px var(--palette-gold);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.commercial-title {
+  font-family: var(--font-display);
+  font-size: var(--text-display);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--palette-cream);
+  margin-bottom: var(--space-3);
+  letter-spacing: -0.01em;
+}
+
+.commercial-gold-highlight {
+  color: var(--palette-gold);
+  font-style: italic;
+  font-family: var(--font-serif);
+  font-weight: 400;
+}
+
+.commercial-lead-text {
+  font-size: var(--text-body-lg);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 680px;
+  margin-bottom: var(--space-4);
+}
+
+.commercial-capabilities-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.capability-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  background-color: rgba(37, 107, 92, 0.28);
+  border: 1px solid var(--border-medium);
+  border-radius: 20px;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--palette-cream);
+  transition: all var(--transition-fast);
+}
+
+.capability-pill:hover {
+  background-color: rgba(37, 107, 92, 0.55);
+  border-color: var(--palette-gold);
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+/* Notable Clients Showcase Box (Frosted Architectural Glass) */
+.commercial-clients-card {
+  background: rgba(17, 71, 60, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-accent);
+  border-radius: 8px;
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 16px 40px -8px rgba(2, 16, 13, 0.8), 0 0 24px rgba(197, 155, 67, 0.12);
+  position: relative;
+  overflow: hidden;
+}
+
+.commercial-clients-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 90px;
+  height: 90px;
+  background: radial-gradient(circle at 100% 0%, rgba(197, 155, 67, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.clients-card-header {
+  margin-bottom: var(--space-2);
+}
+
+.clients-card-eyebrow {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--palette-gold);
+  margin-bottom: 4px;
+}
+
+.clients-card-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-h3);
+  font-weight: 500;
+  color: var(--palette-cream);
+  margin: 0;
+}
+
+.clients-badges-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.client-badge-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 10px 14px;
+  background: rgba(6, 25, 20, 0.75);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  transition: all var(--transition-fast);
+}
+
+.client-badge-item:hover {
+  border-color: var(--palette-gold);
+  background: rgba(10, 61, 51, 0.85);
+  transform: translateX(4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.client-logo-pill {
+  min-width: 84px;
+  height: 38px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #041410 0%, #0d382f 100%);
+  border: 1px solid var(--border-accent);
+  border-radius: 4px;
+  flex-shrink: 0;
+  box-shadow: inset 0 1px 0 rgba(233, 221, 197, 0.15);
+}
+
+.client-brand-name {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--palette-cream);
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.client-brand-name.amazon-font {
+  font-family: var(--font-sans);
+  text-transform: lowercase;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #FF9900;
+  text-shadow: 0 0 12px rgba(255, 153, 0, 0.3);
+}
+
+.client-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow: hidden;
+}
+
+.client-sector {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--palette-cream);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.client-scope {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.clients-card-footer {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: var(--space-2);
+}
+
+.clients-assurance-note {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--palette-gold);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.clients-assurance-note svg {
+  flex-shrink: 0;
+  color: var(--palette-gold);
+}
+
+/* 4-Slot Dedicated Gallery Showcase */
+.commercial-gallery-wrap {
+  margin-top: var(--space-4);
+}
+
+.commercial-gallery-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: var(--space-3);
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.gallery-sublabel {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--palette-gold);
+  margin-bottom: 4px;
+}
+
+.gallery-section-heading {
+  font-family: var(--font-serif);
+  font-size: var(--text-h2);
+  font-weight: 400;
+  color: var(--palette-cream);
+  margin: 0;
+}
+
+.gallery-subdesc {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  max-width: 520px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* 4-Column Responsive Grid */
+.commercial-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+}
+
+.commercial-gallery-item {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.45);
+  transition: all var(--transition-smooth);
+}
+
+.commercial-gallery-item:hover {
+  transform: translateY(-4px);
+  border-color: var(--palette-gold);
+  box-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.65), 0 0 20px rgba(197, 155, 67, 0.2);
+}
+
+.commercial-img-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: #051612;
+}
+
+.commercial-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.commercial-gallery-item:hover .commercial-img-box img {
+  transform: scale(1.06);
+}
+
+.commercial-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 4px 10px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--palette-gold);
+  background: rgba(5, 22, 18, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--border-accent);
+  border-radius: 3px;
+  pointer-events: none;
+}
+
+.commercial-caption {
+  padding: var(--space-2);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: rgba(10, 61, 51, 0.4);
+  border-top: 1px solid var(--border-subtle);
+  flex: 1;
+}
+
+.caption-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-1);
+}
+
+.caption-title {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--palette-cream);
+  margin: 0;
+}
+
+.caption-ref {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--palette-gold);
+  letter-spacing: 0.08em;
+  flex-shrink: 0;
+}
+
+.caption-meta {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1100px) {
+  .commercial-header-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .commercial-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+}
+
+@media (max-width: 640px) {
+  .commercial-section {
+    padding-top: var(--space-6);
+    padding-bottom: var(--space-6);
+  }
+
+  .commercial-gallery-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .commercial-gallery-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .client-badge-item {
+    padding: 8px 12px;
+  }
+  
+  .client-logo-pill {
+    min-width: 72px;
+    height: 34px;
+  }
+  
+  .client-brand-name {
+    font-size: 0.95rem;
+  }
+}
+
+/* Reduced Motion Support for Commercial Section */
+@media (prefers-reduced-motion: reduce) {
+  .commercial-gallery-item,
+  .client-badge-item,
+  .capability-pill,
+  .commercial-img-box img {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
    8. Portfolio Section (All Projects, 4-Column Compact Grid)
    -------------------------------------------------------------------------- */
 .projects-gallery-section {
