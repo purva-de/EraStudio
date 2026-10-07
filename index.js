@@ -73,7 +73,7 @@ const PROJECTS_DATA = [
   },
   {
     id: "study-desk",
-    title: "Study & Desk",
+    title: "Study Desk",
     category: "interiors",
     subcategories: ["interiors", "commercial", "residential"],
     location: "Executive Residence",
@@ -574,19 +574,10 @@ function initProjectsFilter() {
       : PROJECTS_DATA.filter((p) => p.subcategories.includes(filter));
 
     portfolioGrid.innerHTML = filtered.map((project) => `
-      <article class="project-card portfolio-item" data-project-id="${project.id}" tabindex="0" role="button" aria-label="View ${project.title}">
+      <article class="project-card portfolio-item" data-project-id="${project.id}" tabindex="0" role="button" aria-label="${project.title}">
         <div class="project-image-box">
           <img src="${project.heroImage}" alt="${project.title}" loading="lazy" />
           <span class="project-badge-tag">${project.category}</span>
-          <div class="project-hover-curtain">
-            <span class="project-view-cue">
-              View
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </span>
-          </div>
         </div>
         <div class="project-meta-row">
           <h3 class="project-title">${project.title}</h3>

@@ -754,11 +754,85 @@ body.cursor-hover .cursor-ring {
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95), 0 1px 4px rgba(0, 0, 0, 0.95);
 }
 
-.hero-controls-group {
+.hero-controls-group,
+.hero-contact-group {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
+  gap: var(--space-2);
   flex-wrap: wrap;
+}
+
+.hero-whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 8px 18px;
+  min-height: 44px;
+  background: rgba(10, 61, 51, 0.78);
+  border: 1px solid var(--border-accent);
+  border-radius: 4px;
+  color: var(--palette-cream);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  transition: all var(--transition-fast);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45), 0 0 10px rgba(197, 155, 67, 0.15);
+}
+
+.hero-whatsapp-btn:hover {
+  background: var(--palette-teal);
+  border-color: var(--palette-gold);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(4, 25, 21, 0.8), 0 0 16px var(--color-gold-glow);
+}
+
+.hero-whatsapp-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.whatsapp-icon-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #25D366;
+  filter: drop-shadow(0 0 4px rgba(37, 211, 102, 0.5));
+  flex-shrink: 0;
+}
+
+.whatsapp-btn-text {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.whatsapp-label {
+  font-weight: 500;
+  color: var(--palette-cream);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.whatsapp-number {
+  font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: 0.04em;
+}
+
+.whatsapp-arrow {
+  color: var(--accent);
+  transition: transform var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.hero-whatsapp-btn:hover .whatsapp-arrow {
+  transform: translate(2px, -2px);
+  color: #FFFFFF;
 }
 
 .hero-video-toggle {
@@ -2628,9 +2702,15 @@ body.cursor-hover .cursor-ring {
     margin-top: var(--space-3);
   }
 
-  .hero-controls-group {
+  .hero-controls-group,
+  .hero-contact-group {
     width: 100%;
-    justify-content: space-between;
+    justify-content: flex-start;
+  }
+
+  .hero-whatsapp-btn {
+    width: 100%;
+    justify-content: center;
   }
 
   .stream-group .project-card {
