@@ -83,7 +83,7 @@ const PROJECTS_DATA = [
     heroImage: "cabi_study.jpeg",
     gallery: ["compartments.jpeg", "mirror_cabi.jpeg", "wardrobe.jpeg"],
     excerpt: "Integrated study desk with pull-out concealed storage, fluted plinth, and solid turned wooden handles.",
-    description: "A compact study and desk unit integrating storage walls, pull-out vanity columns, and task lighting.",
+    description: "A compact study desk unit integrating storage walls, pull-out vanity columns, and task lighting.",
     approach: "Cabinetry built flush into walls with turned walnut handles and concealed hardware to maximize floor space.",
     materials: ["Lacquered Panels", "Turned Walnut", "Fluted Base", "Concealed Hardware"]
   },
