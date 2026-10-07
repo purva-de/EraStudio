@@ -749,7 +749,7 @@
           <div class="services-view-switch" role="tablist" aria-label="Services Display Mode">
             <button class="view-switch-btn active" id="viewSwitchDisciplines" type="button" role="tab"
               aria-selected="true" aria-controls="servicesConsole">
-              Disciplines (07)
+              Disciplines (08)
             </button>
             <button class="view-switch-btn" id="viewSwitchProcess" type="button" role="tab" aria-selected="false"
               aria-controls="processConsole">
@@ -762,7 +762,7 @@
             <span class="services-counter" id="servicesCounter">
               <span class="counter-curr" id="counterCurrent">01</span>
               <span class="counter-sep">/</span>
-              <span class="counter-total" id="counterTotal">07</span>
+              <span class="counter-total" id="counterTotal">08</span>
             </span>
             <button class="services-nav-arrow" id="servicesPrevBtn" type="button" aria-label="Previous discipline"
               title="Previous discipline">
@@ -785,7 +785,7 @@
 
         <!-- VIEW 1: Disciplines Single-Frame Console (Fits 100% in One Screen) -->
         <div class="services-console-frame" id="servicesConsole" role="region" aria-label="Disciplines Console">
-          <!-- Left Column: Compact 7-Item Disciplines Rail (all 7 instantly visible without scrolling) -->
+          <!-- Left Column: Compact 8-Item Disciplines Rail -->
           <div class="disciplines-rail" role="tablist" aria-label="Select Discipline" id="disciplinesRail">
             <button class="discipline-rail-item active" data-service-idx="0" role="tab" aria-selected="true"
               id="disc-tab-0">
@@ -810,16 +810,21 @@
             </button>
             <button class="discipline-rail-item" data-service-idx="4" role="tab" aria-selected="false" id="disc-tab-4">
               <span class="disc-item-idx">05</span>
-              <span class="disc-item-name">Space Planning</span>
+              <span class="disc-item-name">Commercial Expertise</span>
               <span class="disc-item-indicator" aria-hidden="true">→</span>
             </button>
             <button class="discipline-rail-item" data-service-idx="5" role="tab" aria-selected="false" id="disc-tab-5">
               <span class="disc-item-idx">06</span>
-              <span class="disc-item-name">3D Visualization</span>
+              <span class="disc-item-name">Space Planning</span>
               <span class="disc-item-indicator" aria-hidden="true">→</span>
             </button>
             <button class="discipline-rail-item" data-service-idx="6" role="tab" aria-selected="false" id="disc-tab-6">
               <span class="disc-item-idx">07</span>
+              <span class="disc-item-name">3D Visualization</span>
+              <span class="disc-item-indicator" aria-hidden="true">→</span>
+            </button>
+            <button class="discipline-rail-item" data-service-idx="7" role="tab" aria-selected="false" id="disc-tab-7">
+              <span class="disc-item-idx">08</span>
               <span class="disc-item-name">Design Consultation</span>
               <span class="disc-item-indicator" aria-hidden="true">→</span>
             </button>
@@ -836,12 +841,13 @@
               <img id="servicePreviewImg" src="planning2.jpeg" alt="Architectural Design Preview" loading="lazy" />
               <div class="stage-visual-overlay"></div>
               <span id="servicePreviewPhase" class="stage-phase-badge">Phase 01 — Spatial Architecture</span>
+              <div id="serviceVisualThumbnails" class="stage-visual-thumbnails" style="display: none;" aria-label="Discipline photo options"></div>
             </div>
 
             <div class="stage-content-wrap">
               <div class="stage-top-meta">
                 <span class="stage-discipline-category" id="servicePreviewCat">Core Discipline</span>
-                <span class="stage-index-badge" id="servicePreviewIdx">01 / 07</span>
+                <span class="stage-index-badge" id="servicePreviewIdx">01 / 08</span>
               </div>
               <h3 id="servicePreviewTitle" class="stage-title">Architectural Design</h3>
               <p id="servicePreviewTagline" class="stage-tagline">
@@ -1071,7 +1077,7 @@
 
     <div class="modal-body">
       <figure class="modal-hero-img-wrap">
-        <img id="modalHeroImg" src="planning2.jpeg" alt="Project View" />
+        <img id="modalHeroImg" src="cafe2.jpeg" alt="Project View" />
       </figure>
 
       <div class="modal-meta-grid">

@@ -11,7 +11,7 @@ const PROJECTS_DATA = [
     id: "commercial-expertise",
     title: "Commercial Expertise",
     category: "commercial",
-    subcategories: ["commercial", "interiors"],
+    subcategories: ["commercial", "interiors", "architecture"],
     location: "Corporate & Hospitality",
     area: "8,500 sq.ft",
     scope: "Interiors & Architecture",
@@ -202,12 +202,30 @@ const SERVICES_DATA = [
     typologyVal: "Commercial Space"
   },
   {
-    id: "planning",
+    id: "commercial-expertise",
     idx: "05",
+    category: "Corporate & Hospitality",
+    title: "Commercial Expertise",
+    image: "cafe1.jpeg",
+    gallery: ["cafe1.jpeg", "cafe2.jpeg", "cafe3.jpeg", "cafe4.jpeg"],
+    phase: "Phase 05 — Turnkey Commercial & Cafeteria",
+    tagline: "Commercial interiors, cafeteria architecture, and industrial design for industry leaders.",
+    deliverables: [
+      "Specialized cafeteria & food court architectural planning",
+      "Corporate office interiors & ergonomic workstation layouts",
+      "Industrial interior & exterior facade engineering",
+      "Turnkey delivery for reputed clients (Sify, Amazon, SBI)",
+      "Acoustic ceiling baffles, bespoke lighting & high-traffic finishes"
+    ],
+    typologyVal: "Commercial Space"
+  },
+  {
+    id: "planning",
+    idx: "06",
     category: "Spatial Optimization",
     title: "Space Planning",
     image: "cabi_study.jpeg",
-    phase: "Phase 05 — Ergonomic Precision",
+    phase: "Phase 06 — Ergonomic Precision",
     tagline: "Optimizing circulation, visual sightlines, and built-in micro-storage.",
     deliverables: [
       "Millimeter-precision volumetric space optimization",
@@ -220,11 +238,11 @@ const SERVICES_DATA = [
   },
   {
     id: "vis",
-    idx: "06",
+    idx: "07",
     category: "Digital Exploration",
     title: "3D Visualization",
     image: "planning1.jpeg",
-    phase: "Phase 06 — Digital Exploration",
+    phase: "Phase 07 — Digital Exploration",
     tagline: "Atmospheric digital renders, sunlight path simulations, and material studies.",
     deliverables: [
       "Photorealistic architectural exterior CGI renderings",
@@ -237,11 +255,11 @@ const SERVICES_DATA = [
   },
   {
     id: "consult",
-    idx: "07",
+    idx: "08",
     category: "Advisory & Craft Audit",
     title: "Design Consultation",
     image: "planning6.jpeg",
-    phase: "Phase 07 — Advisory & Craft",
+    phase: "Phase 08 — Advisory & Craft",
     tagline: "Expert architectural guidance, peer reviews, and direct on-site craft auditing.",
     deliverables: [
       "Pre-purchase property & site feasibility evaluations",
@@ -385,8 +403,9 @@ function initInteractiveServices() {
     if (counterCurrent) {
       counterCurrent.textContent = data.idx;
     }
+    const totalCountStr = String(SERVICES_DATA.length).padStart(2, "0");
     if (counterTotal && activeView === "disciplines") {
-      counterTotal.textContent = "07";
+      counterTotal.textContent = totalCountStr;
     }
 
     // Smooth image crossfade
@@ -406,10 +425,42 @@ function initInteractiveServices() {
       }
     }
 
+    // Update thumbnail gallery strip
+    const thumbnailsContainer = document.getElementById("serviceVisualThumbnails");
+    if (thumbnailsContainer) {
+      if (data.gallery && data.gallery.length > 1) {
+        thumbnailsContainer.style.display = "flex";
+        thumbnailsContainer.innerHTML = data.gallery
+          .map(
+            (imgSrc, i) => `
+          <button type="button" class="stage-thumb-btn ${imgSrc === data.image ? 'active' : ''}" data-thumb-src="${imgSrc}" aria-label="View photo ${i + 1}">
+            <img src="${imgSrc}" alt="${data.title} thumbnail ${i + 1}" loading="lazy" />
+          </button>
+        `
+          )
+          .join("");
+
+        thumbnailsContainer.querySelectorAll(".stage-thumb-btn").forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const newSrc = btn.getAttribute("data-thumb-src");
+            if (previewImg && newSrc) {
+              previewImg.src = newSrc;
+              thumbnailsContainer.querySelectorAll(".stage-thumb-btn").forEach((b) => b.classList.remove("active"));
+              btn.classList.add("active");
+            }
+          });
+        });
+      } else {
+        thumbnailsContainer.style.display = "none";
+        thumbnailsContainer.innerHTML = "";
+      }
+    }
+
     // Update text elements
     if (previewPhase) previewPhase.textContent = data.phase;
     if (previewCat) previewCat.textContent = data.category || "Core Discipline";
-    if (previewIdx) previewIdx.textContent = `${data.idx} / 07`;
+    if (previewIdx) previewIdx.textContent = `${data.idx} / ${totalCountStr}`;
     if (previewTitle) previewTitle.textContent = data.title;
     if (previewTagline) previewTagline.textContent = data.tagline;
 
@@ -499,7 +550,7 @@ function initInteractiveServices() {
         viewSwitchProcess.classList.remove("active");
         viewSwitchProcess.setAttribute("aria-selected", "false");
       }
-      if (counterTotal) counterTotal.textContent = "07";
+      if (counterTotal) counterTotal.textContent = String(SERVICES_DATA.length).padStart(2, "0");
       if (counterCurrent) counterCurrent.textContent = SERVICES_DATA[currentServiceIndex]?.idx || "01";
       if (prevBtn) prevBtn.style.opacity = "1";
       if (nextBtn) nextBtn.style.opacity = "1";
