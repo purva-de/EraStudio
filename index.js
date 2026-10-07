@@ -640,20 +640,7 @@ function initProjectModal() {
     nextBtn.addEventListener("click", () => navigateModalProject(1));
   }
 
-  // Bind selected works cards on homepage
-  document.querySelectorAll(".featured-project-card").forEach((card) => {
-    card.addEventListener("click", () => {
-      const pId = card.getAttribute("data-project-id");
-      openProjectModal(pId);
-    });
-    card.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        const pId = card.getAttribute("data-project-id");
-        openProjectModal(pId);
-      }
-    });
-  });
+
 }
 
 function openProjectModal(projectId) {
@@ -1095,29 +1082,6 @@ function initSelectedWorksStream() {
     }, 80);
   });
 
-  // Ensure card click opens modal, but ignore if dragging
-  streamWrap.querySelectorAll(".featured-project-card").forEach((card) => {
-    card.addEventListener("click", (e) => {
-      if (hasDragged) {
-        e.preventDefault();
-        e.stopImmediatePropagation();
-        return;
-      }
-      const pId = card.getAttribute("data-project-id");
-      if (pId && typeof openProjectModal === "function") {
-        openProjectModal(pId);
-      }
-    });
 
-    card.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        const pId = card.getAttribute("data-project-id");
-        if (pId && typeof openProjectModal === "function") {
-          openProjectModal(pId);
-        }
-      }
-    });
-  });
 }
 

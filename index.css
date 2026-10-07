@@ -1098,6 +1098,7 @@ body.cursor-hover .cursor-ring {
 .stream-group .project-card {
   flex: 0 0 320px;
   width: 320px;
+  cursor: default;
   transition: transform var(--transition-smooth);
 }
 
