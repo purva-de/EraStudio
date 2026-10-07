@@ -8,19 +8,19 @@
 // --------------------------------------------------------------------------
 const PROJECTS_DATA = [
   {
-    id: "modern-villa",
-    title: "Modern Villa",
-    category: "architecture",
-    subcategories: ["architecture", "residential"],
-    location: "Coastal Ridge",
-    area: "6,800 sq.ft",
-    scope: "Architecture & Landscape",
-    heroImage: "planning2.jpeg",
-    gallery: ["planning7.jpeg", "planning5.jpeg", "planning1.jpeg"],
-    excerpt: "Concrete private residence with cantilevered terraces, shaded courtyards, and warm terracotta accents.",
-    description: "A private residence built with board-marked concrete and cantilevered slabs. Deep structural overhangs provide shade while framing panoramic horizon views.",
-    approach: "Climatic response and honest materials. Concrete walls provide thermal mass, paired with terracotta panels that catch natural light.",
-    materials: ["Cast Concrete", "Terracotta Panels", "Thermal Glazing", "Brass Louvers"]
+    id: "commercial-expertise",
+    title: "Commercial Expertise",
+    category: "commercial",
+    subcategories: ["commercial", "interiors"],
+    location: "Corporate & Hospitality",
+    area: "8,500 sq.ft",
+    scope: "Interiors & Architecture",
+    heroImage: "cafe2.jpeg",
+    gallery: ["cafe1.jpeg", "cafe3.jpeg", "cafe4.jpeg"],
+    excerpt: "Turnkey commercial and cafeteria interiors executed for corporate and hospitality clients.",
+    description: "Functional spatial planning and contemporary interior detailing tailored for high-volume commercial environments, dining hubs, and corporate spaces.",
+    approach: "Durable materiality, acoustic comfort, and seamless human flow engineered for active commercial spaces.",
+    materials: ["Architectural Joinery", "Acoustic Baffles", "Custom Lighting", "Commercial Grade Flooring"]
   },
   {
     id: "master-bedroom",
