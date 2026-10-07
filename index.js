@@ -574,7 +574,7 @@ function initProjectsFilter() {
       : PROJECTS_DATA.filter((p) => p.subcategories.includes(filter));
 
     portfolioGrid.innerHTML = filtered.map((project) => `
-      <article class="project-card portfolio-item" data-project-id="${project.id}" tabindex="0" role="button" aria-label="${project.title}">
+      <article class="project-card portfolio-item" data-project-id="${project.id}" aria-label="${project.title}">
         <div class="project-image-box">
           <img src="${project.heroImage}" alt="${project.title}" loading="lazy" />
           <span class="project-badge-tag">${project.category}</span>
@@ -586,20 +586,6 @@ function initProjectsFilter() {
         <p class="project-location-type">${project.location} · ${project.scope}</p>
       </article>
     `).join("");
-
-    portfolioGrid.querySelectorAll(".project-card").forEach((card) => {
-      card.addEventListener("click", () => {
-        const pId = card.getAttribute("data-project-id");
-        openProjectModal(pId);
-      });
-      card.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          const pId = card.getAttribute("data-project-id");
-          openProjectModal(pId);
-        }
-      });
-    });
   }
 }
 
