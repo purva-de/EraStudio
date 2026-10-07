@@ -13,7 +13,6 @@ const PROJECTS_DATA = [
     category: "architecture",
     subcategories: ["architecture", "residential"],
     location: "Coastal Ridge",
-    year: "2024",
     area: "6,800 sq.ft",
     scope: "Architecture & Landscape",
     heroImage: "planning2.jpeg",
@@ -29,7 +28,6 @@ const PROJECTS_DATA = [
     category: "interiors",
     subcategories: ["interiors", "residential"],
     location: "High-Rise Suite",
-    year: "2024",
     area: "1,250 sq.ft",
     scope: "Interior & Millwork",
     heroImage: "bedroom.jpeg",
@@ -45,7 +43,6 @@ const PROJECTS_DATA = [
     category: "interiors",
     subcategories: ["interiors", "residential"],
     location: "Private Residence",
-    year: "2023",
     area: "980 sq.ft",
     scope: "Interior & Joinery",
     heroImage: "dining.jpeg",
@@ -61,7 +58,6 @@ const PROJECTS_DATA = [
     category: "architecture",
     subcategories: ["architecture", "commercial"],
     location: "Metropolitan District",
-    year: "2025",
     area: "140,000 sq.ft",
     scope: "Architecture & Structure",
     heroImage: "ucon3.jpeg",
@@ -77,7 +73,6 @@ const PROJECTS_DATA = [
     category: "interiors",
     subcategories: ["interiors", "commercial", "residential"],
     location: "Executive Residence",
-    year: "2024",
     area: "650 sq.ft",
     scope: "Joinery & Interior",
     heroImage: "cabi_study.jpeg",
@@ -93,7 +88,6 @@ const PROJECTS_DATA = [
     category: "commercial",
     subcategories: ["architecture", "commercial"],
     location: "Creative Quarter",
-    year: "2024",
     area: "8,500 sq.ft",
     scope: "Architecture & Studio Space",
     heroImage: "ucon9.jpeg",
@@ -109,7 +103,6 @@ const PROJECTS_DATA = [
     category: "interiors",
     subcategories: ["interiors", "residential"],
     location: "Private Suite",
-    year: "2023",
     area: "420 sq.ft",
     scope: "Custom Millwork",
     heroImage: "cabinet.jpeg",
@@ -125,7 +118,6 @@ const PROJECTS_DATA = [
     category: "interiors",
     subcategories: ["interiors", "residential"],
     location: "Private Residence",
-    year: "2023",
     area: "750 sq.ft",
     scope: "Interior & Styling",
     heroImage: "corners.jpeg",
@@ -581,7 +573,6 @@ function initProjectsFilter() {
         </div>
         <div class="project-meta-row">
           <h3 class="project-title">${project.title}</h3>
-          <span class="project-year">${project.year}</span>
         </div>
         <p class="project-location-type">${project.location} · ${project.scope}</p>
       </article>
@@ -646,7 +637,6 @@ function openProjectModal(projectId) {
   document.getElementById("modalDescription").textContent = project.description;
 
   document.getElementById("modalSpecLocation").textContent = project.location;
-  document.getElementById("modalSpecYear").textContent = project.year;
   document.getElementById("modalSpecArea").textContent = project.area;
   document.getElementById("modalSpecScope").textContent = project.scope;
 
