@@ -126,7 +126,7 @@
       <p style="font-size: var(--text-xs); color: var(--text-muted); font-family: var(--font-mono);">Architectural
         Atelier · By Appointment</p>
       <p style="font-size: var(--text-xs); font-family: var(--font-mono);">
-        <a href="mailto:info@era-designstudio.in" class="contact-link"
+        <a href="mailto:info@era-designstudio.in" class="contact-link email-compose-trigger"
           style="color: var(--text-primary); text-decoration: underline;">info@era-designstudio.in</a>
       </p>
       <p
@@ -850,20 +850,37 @@
             </div>
             <div class="contact-card-content">
               <p class="contact-info-value">
-                <a href="mailto:info@era-designstudio.in" class="contact-link"
-                  aria-label="Email Era Design Studio">info@era-designstudio.in</a>
+                <a href="mailto:info@era-designstudio.in" class="contact-link email-compose-trigger"
+                  aria-label="Compose email to Era Design Studio">info@era-designstudio.in</a>
               </p>
+              <!-- Direct Webmail Quick Options on Card -->
+              <div class="contact-email-quick-actions" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: var(--space-2);">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@era-designstudio.in&su=Architectural%20Inquiry%20%E2%80%94%20Era%20Design%20Studio"
+                  target="_blank" rel="noopener noreferrer" class="email-action-chip"
+                  aria-label="Compose directly in Gmail Web">
+                  <span>Gmail ↗</span>
+                </a>
+                <a href="https://outlook.live.com/mail/0/deeplink/compose?to=info@era-designstudio.in&subject=Architectural%20Inquiry%20%E2%80%94%20Era%20Design%20Studio"
+                  target="_blank" rel="noopener noreferrer" class="email-action-chip"
+                  aria-label="Compose directly in Outlook Web">
+                  <span>Outlook ↗</span>
+                </a>
+                <button type="button" class="email-action-chip card-copy-email-btn"
+                  aria-label="Copy info@era-designstudio.in to clipboard">
+                  <span class="copy-text">Copy Address</span>
+                </button>
+              </div>
             </div>
             <div class="contact-card-footer">
-              <a href="mailto:info@era-designstudio.in" class="social-link"
-                aria-label="Send email to Era Design Studio">
+              <button type="button" class="social-link email-compose-trigger"
+                aria-label="Open Compose Email Options">
                 <span>Compose Email</span>
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <line x1="7" y1="17" x2="17" y2="7"></line>
                   <polyline points="7 7 17 7 17 17"></polyline>
                 </svg>
-              </a>
+              </button>
             </div>
           </article>
 
@@ -999,6 +1016,135 @@
   </dialog>
 
   <!-- ======================================================================
+       Email Compose Native Dialog Modal (<dialog>)
+       ====================================================================== -->
+  <dialog id="emailComposeModal" class="email-compose-dialog" aria-labelledby="emailModalTitle" aria-describedby="emailModalDesc">
+    <div class="modal-header-bar">
+      <span class="modal-category-label">Dispatch · Direct Atelier Inquiry</span>
+      <button type="button" id="emailModalCloseBtn" class="modal-close-btn" aria-label="Close Email Compose Dialog">
+        Close ✕
+      </button>
+    </div>
+
+    <div class="email-modal-body">
+      <div class="email-modal-intro">
+        <span class="email-modal-kicker">Direct Contact Channel</span>
+        <h2 id="emailModalTitle" class="email-modal-title">Compose to Era Design Studio</h2>
+        <p id="emailModalDesc" class="email-modal-desc">
+          Choose your preferred email platform to compose directly to <strong class="email-highlight">info@era-designstudio.in</strong>.
+        </p>
+      </div>
+
+      <!-- Quick Webmail & Client Launch Grid -->
+      <div class="email-launch-grid" role="group" aria-label="Direct Email Compose Providers">
+        <!-- 1. Gmail Web -->
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@era-designstudio.in&su=Architectural%20Inquiry%20%E2%80%94%20Era%20Design%20Studio"
+           target="_blank" rel="noopener noreferrer" class="email-launch-card" id="gmailComposeLink"
+           aria-label="Compose in Gmail Web in new tab">
+          <div class="launch-card-icon-wrap" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </div>
+          <div class="launch-card-text">
+            <span class="launch-card-provider">Google Mail (Web)</span>
+            <span class="launch-card-action">Open Gmail Compose ↗</span>
+            <span class="launch-card-hint">Opens directly in your browser with address filled</span>
+          </div>
+        </a>
+
+        <!-- 2. Outlook / Microsoft 365 Web -->
+        <a href="https://outlook.live.com/mail/0/deeplink/compose?to=info@era-designstudio.in&subject=Architectural%20Inquiry%20%E2%80%94%20Era%20Design%20Studio"
+           target="_blank" rel="noopener noreferrer" class="email-launch-card" id="outlookComposeLink"
+           aria-label="Compose in Outlook Web in new tab">
+          <div class="launch-card-icon-wrap" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+            </svg>
+          </div>
+          <div class="launch-card-text">
+            <span class="launch-card-provider">Outlook / Microsoft 365</span>
+            <span class="launch-card-action">Open Outlook Web ↗</span>
+            <span class="launch-card-hint">Opens Hotmail, Outlook.com, or Office 365 compose</span>
+          </div>
+        </a>
+
+        <!-- 3. Default Native App -->
+        <a href="mailto:info@era-designstudio.in?subject=Architectural%20Inquiry%20%E2%80%94%20Era%20Design%20Studio"
+           class="email-launch-card" id="defaultAppComposeLink"
+           aria-label="Open with default system email client">
+          <div class="launch-card-icon-wrap" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="14" x="2" y="3" rx="2"></rect>
+              <line x1="8" x2="16" y1="21" y2="21"></line>
+              <line x1="12" x2="12" y1="17" y2="21"></line>
+            </svg>
+          </div>
+          <div class="launch-card-text">
+            <span class="launch-card-provider">Default Desktop App</span>
+            <span class="launch-card-action">Launch Mail Client ↗</span>
+            <span class="launch-card-hint">Apple Mail, Thunderbird, or Windows Mail</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Quick Copy Address Bar -->
+      <div class="email-copy-bar">
+        <div class="email-copy-text-wrap">
+          <span class="email-copy-label">Atelier Email Address</span>
+          <span class="email-copy-val">info@era-designstudio.in</span>
+        </div>
+        <button type="button" class="email-modal-copy-btn" id="modalCopyEmailBtn" aria-label="Copy info@era-designstudio.in to clipboard">
+          <span id="copyBtnText">Copy Address</span>
+        </button>
+      </div>
+
+      <!-- Quick Inquiry Draft Builder -->
+      <section class="email-draft-box" aria-label="Compose Custom Inquiry Brief">
+        <div class="draft-header">
+          <h3 class="draft-title">Pre-fill Brief (Optional)</h3>
+          <p class="draft-subtitle">Type your project requirements below to automatically transfer them into Gmail or your mail app.</p>
+        </div>
+
+        <form id="emailDraftForm" class="email-draft-form" onsubmit="return false;">
+          <div class="draft-fields-row">
+            <div class="draft-field">
+              <label for="draftSenderName">Your Name</label>
+              <input type="text" id="draftSenderName" placeholder="e.g. Purva / Client Name" autocomplete="name" />
+            </div>
+            <div class="draft-field">
+              <label for="draftServiceType">Project Typology</label>
+              <select id="draftServiceType">
+                <option value="Spatial Architecture">Spatial Architecture</option>
+                <option value="Bespoke Interiors">Bespoke Interiors</option>
+                <option value="Commercial Space">Commercial & Hospitality</option>
+                <option value="Turnkey Execution">Turnkey Atelier</option>
+                <option value="Design Consultation">Design Consultation</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="draft-field">
+            <label for="draftMessage">Brief / Message</label>
+            <textarea id="draftMessage" rows="3" placeholder="Briefly describe your site location, scope, or requirements..."></textarea>
+          </div>
+
+          <div class="draft-actions">
+            <button type="button" id="draftLaunchGmailBtn" class="draft-action-btn primary-draft-btn">
+              <span>Compose in Gmail with this Brief ↗</span>
+            </button>
+            <button type="button" id="draftLaunchMailtoBtn" class="draft-action-btn secondary-draft-btn">
+              <span>Open in Mail App</span>
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </dialog>
+
+  <!-- ======================================================================
        Site Footer
        ====================================================================== -->
   <footer class="site-footer" role="contentinfo">
@@ -1048,7 +1194,7 @@
               class="footer-link" style="display: inline-block; margin-top: 4px;">Google Maps Location ↗</a>
           </p>
           <div style="margin-top: var(--space-2); font-size: var(--text-xs); line-height: 1.8;">
-            <a href="mailto:info@era-designstudio.in" class="footer-link"
+            <a href="mailto:info@era-designstudio.in" class="footer-link email-compose-trigger"
               style="display: block;">info@era-designstudio.in</a>
             <a href="tel:+917517572791" class="footer-link" style="display: block; white-space: nowrap;">+91 75175
               72791</a>

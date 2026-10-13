@@ -288,6 +288,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initSmoothScrollLinks();
   initHeroVideo();
   initSelectedWorksStream();
+  initEmailComposeHandlers();
 });
 
 // --------------------------------------------------------------------------
@@ -1134,7 +1135,153 @@ function initSelectedWorksStream() {
       hasDragged = false;
     }, 80);
   });
-
-
 }
 
+// --------------------------------------------------------------------------
+// 12. Email Compose Modal & Desktop Webmail Launch Controller
+// --------------------------------------------------------------------------
+function initEmailComposeHandlers() {
+  const emailModal = document.getElementById("emailComposeModal");
+  if (!emailModal) return;
+
+  const closeBtn = document.getElementById("emailModalCloseBtn");
+  const modalCopyBtn = document.getElementById("modalCopyEmailBtn");
+  const copyBtnText = document.getElementById("copyBtnText");
+  const cardCopyBtns = document.querySelectorAll(".card-copy-email-btn");
+  const triggers = document.querySelectorAll(".email-compose-trigger, a[href^='mailto:info@era-designstudio.in']");
+
+  // Open modal on click
+  triggers.forEach((trigger) => {
+    trigger.addEventListener("click", (e) => {
+      e.preventDefault();
+      emailModal.showModal();
+      emailModal.scrollTop = 0;
+    });
+  });
+
+  // Close modal via close button
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
+      emailModal.close();
+    });
+  }
+
+  // Light dismiss on backdrop click
+  emailModal.addEventListener("click", (e) => {
+    const rect = emailModal.getBoundingClientRect();
+    if (
+      e.clientX < rect.left ||
+      e.clientX > rect.right ||
+      e.clientY < rect.top ||
+      e.clientY > rect.bottom
+    ) {
+      emailModal.close();
+    }
+  });
+
+  // Clipboard copy function with fallback
+  function copyEmailAddress(btnElement, textElement) {
+    const targetEmail = "info@era-designstudio.in";
+    const originalText = textElement ? textElement.textContent : btnElement.textContent;
+
+    function showSuccess() {
+      if (textElement) {
+        textElement.textContent = "✓ Copied!";
+      } else {
+        btnElement.textContent = "✓ Copied!";
+      }
+      setTimeout(() => {
+        if (textElement) {
+          textElement.textContent = originalText;
+        } else {
+          btnElement.textContent = originalText;
+        }
+      }, 2200);
+    }
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(targetEmail).then(showSuccess).catch(() => {
+        fallbackCopy(targetEmail, showSuccess);
+      });
+    } else {
+      fallbackCopy(targetEmail, showSuccess);
+    }
+  }
+
+  function fallbackCopy(text, callback) {
+    const tempInput = document.createElement("input");
+    tempInput.value = text;
+    tempInput.style.position = "fixed";
+    tempInput.style.opacity = "0";
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    try {
+      document.execCommand("copy");
+      if (callback) callback();
+    } catch (err) {
+      console.warn("Clipboard copy failed:", err);
+    }
+    document.body.removeChild(tempInput);
+  }
+
+  // Copy button in modal
+  if (modalCopyBtn) {
+    modalCopyBtn.addEventListener("click", () => {
+      copyEmailAddress(modalCopyBtn, copyBtnText);
+    });
+  }
+
+  // Copy buttons on cards
+  cardCopyBtns.forEach((btn) => {
+    const labelSpan = btn.querySelector(".copy-text");
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      copyEmailAddress(btn, labelSpan);
+    });
+  });
+
+  // Pre-fill Brief Draft Builder
+  const draftLaunchGmailBtn = document.getElementById("draftLaunchGmailBtn");
+  const draftLaunchMailtoBtn = document.getElementById("draftLaunchMailtoBtn");
+
+  function getDraftDetails() {
+    const nameInput = document.getElementById("draftSenderName");
+    const serviceInput = document.getElementById("draftServiceType");
+    const messageInput = document.getElementById("draftMessage");
+
+    const senderName = nameInput ? nameInput.value.trim() : "";
+    const serviceType = serviceInput ? serviceInput.value : "Design Consultation";
+    const messageText = messageInput ? messageInput.value.trim() : "";
+
+    const subject = `[Project Inquiry] ${serviceType} — Era Design Studio`;
+    let body = `Hello Era Design Studio,\n\n`;
+    if (senderName) {
+      body += `Name: ${senderName}\n`;
+    }
+    body += `Project Typology: ${serviceType}\n\n`;
+    if (messageText) {
+      body += `Scope / Vision:\n${messageText}\n\n`;
+    } else {
+      body += `I would like to discuss an upcoming spatial project with your atelier.\n\n`;
+    }
+    body += `Best regards,\n${senderName || "Prospective Client"}`;
+
+    return { subject, body };
+  }
+
+  if (draftLaunchGmailBtn) {
+    draftLaunchGmailBtn.addEventListener("click", () => {
+      const { subject, body } = getDraftDetails();
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=info@era-designstudio.in&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.open(gmailUrl, "_blank", "noopener,noreferrer");
+    });
+  }
+
+  if (draftLaunchMailtoBtn) {
+    draftLaunchMailtoBtn.addEventListener("click", () => {
+      const { subject, body } = getDraftDetails();
+      const mailtoUrl = `mailto:info@era-designstudio.in?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailtoUrl;
+    });
+  }
+}
