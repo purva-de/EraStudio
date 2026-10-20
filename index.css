@@ -1567,9 +1567,8 @@ body.cursor-hover .cursor-ring {
   color: var(--palette-gold);
 }
 
-.sify-desktop-logo {
+.brand-desktop-logo {
   display: block;
-  height: 32px;
   width: auto;
   max-width: 100%;
   object-fit: contain;
@@ -1577,11 +1576,31 @@ body.cursor-hover .cursor-ring {
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
 }
 
+.amazon-desktop-logo {
+  height: 28px;
+}
+
+.sify-desktop-logo {
+  height: 32px;
+}
+
+.sbi-desktop-logo {
+  height: 28px;
+}
+
+.single-brand-item:hover .amazon-desktop-logo {
+  filter: brightness(1.15) drop-shadow(0 2px 10px rgba(255, 153, 0, 0.5));
+}
+
 .single-brand-item:hover .sify-desktop-logo {
   filter: brightness(1.12) drop-shadow(0 2px 10px rgba(156, 194, 23, 0.5));
 }
 
-.sify-mobile-text {
+.single-brand-item:hover .sbi-desktop-logo {
+  filter: brightness(1.15) drop-shadow(0 2px 10px rgba(0, 181, 239, 0.5));
+}
+
+.brand-mobile-text {
   display: none;
 }
 
@@ -3144,11 +3163,11 @@ body.cursor-hover .cursor-ring {
     gap: var(--space-2);
   }
 
-  .sify-desktop-logo {
+  .brand-desktop-logo {
     display: none;
   }
 
-  .sify-mobile-text {
+  .brand-mobile-text {
     display: inline-block;
   }
 
