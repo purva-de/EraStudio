@@ -1456,144 +1456,131 @@ body.cursor-hover .cursor-ring {
 }
 
 /* --------------------------------------------------------------------------
-   9b. About Studio — Companies We Have Worked With (Enterprise Clients)
+   9b. About Studio — Highlighted Single Box: Companies We Have Worked With
    -------------------------------------------------------------------------- */
-.about-clients-block {
+.about-companies-single-box {
   margin-top: var(--space-8);
-  padding-top: var(--space-6);
-  border-top: 1px solid var(--border-subtle);
+  position: relative;
+  border-radius: 6px;
+  background: linear-gradient(135deg, rgba(23, 85, 73, 0.88) 0%, rgba(17, 71, 60, 0.95) 50%, rgba(10, 61, 51, 0.98) 100%);
+  border: 1px solid var(--border-accent);
+  box-shadow: 0 16px 40px -8px rgba(4, 25, 21, 0.85), 0 0 28px rgba(197, 155, 67, 0.2), inset 0 1px 0 rgba(197, 155, 67, 0.45);
+  padding: var(--space-5) var(--space-6);
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
-.about-clients-header {
-  margin-bottom: var(--space-5);
+.single-box-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--palette-gold) 50%, transparent 100%);
+  opacity: 0.9;
 }
 
-.about-clients-label-wrap {
+.single-box-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-4);
+}
+
+.single-box-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.single-box-badge {
   display: inline-flex;
   align-items: center;
   gap: var(--space-1);
-  margin-bottom: var(--space-1);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--palette-gold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--accent-subtle);
+  border: 1px solid rgba(197, 155, 67, 0.35);
+  padding: 4px 14px;
+  border-radius: 999px;
 }
 
-.about-clients-dot {
-  width: 8px;
-  height: 8px;
+.single-box-dot {
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background-color: var(--accent);
-  box-shadow: 0 0 10px var(--accent-glow);
+  background-color: var(--palette-gold);
+  box-shadow: 0 0 8px var(--accent-glow);
   display: inline-block;
 }
 
-.about-clients-header-split {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: var(--space-4);
-  flex-wrap: wrap;
-}
-
-.about-clients-title {
+.single-box-title {
   font-family: var(--font-serif);
   font-size: var(--text-h2);
   color: var(--text-primary);
   margin: 0;
+  letter-spacing: 0.02em;
 }
 
-.about-clients-subtitle {
-  max-width: 620px;
-  font-size: var(--text-sm);
-  color: var(--text-secondary);
-  line-height: 1.6;
-  margin: 0;
+.single-box-brands {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 900px;
+  gap: var(--space-4);
 }
 
-.about-clients-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-3);
-  margin-bottom: var(--space-5);
-}
-
-.about-client-card {
-  background: linear-gradient(145deg, rgba(23, 85, 73, 0.75) 0%, rgba(17, 71, 60, 0.95) 100%);
-  border: 1px solid var(--border-subtle);
-  border-radius: 4px;
-  padding: var(--space-4);
+.single-brand-item {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  position: relative;
-  overflow: hidden;
-  box-shadow: var(--card-shadow);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
-}
-
-.about-client-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--border-accent);
-  box-shadow: 0 16px 36px -8px rgba(4, 25, 21, 0.9), 0 0 24px rgba(197, 155, 67, 0.22);
-}
-
-.client-card-accent-line {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent 0%, var(--accent) 50%, transparent 100%);
-  opacity: 0.5;
-  transition: opacity var(--transition-fast);
-}
-
-.about-client-card:hover .client-card-accent-line {
-  opacity: 1;
-}
-
-.client-card-header {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: var(--space-3);
-  gap: var(--space-2);
-}
-
-.client-brand-badge {
-  display: inline-flex;
-  align-items: center;
+  justify-content: center;
   gap: var(--space-1);
-  background-color: rgba(10, 61, 51, 0.75);
-  padding: var(--space-1) var(--space-2);
-  border: 1px solid var(--border-subtle);
-  border-radius: 4px;
+  padding: var(--space-2) var(--space-3);
+  transition: transform var(--transition-fast);
 }
 
-.client-brand-text {
+.single-brand-item:hover {
+  transform: translateY(-2px);
+}
+
+.single-brand-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+}
+
+.amazon-logo-wrap {
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.brand-text-amazon {
   font-family: var(--font-sans);
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
   color: var(--palette-cream);
   line-height: 1;
 }
 
-.brand-amazon {
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 6px 14px;
-}
-
-.brand-amazon .client-brand-text {
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: -0.04em;
-}
-
 .amazon-smile-curve {
-  margin-top: 3px;
-  margin-left: 2px;
+  margin-top: 1px;
 }
 
-.brand-sify {
-  padding: 6px 14px;
+.sify-logo-wrap {
+  display: inline-flex;
+  align-items: center;
   gap: var(--space-1);
 }
 
@@ -1602,15 +1589,19 @@ body.cursor-hover .cursor-ring {
   align-items: center;
 }
 
-.brand-sify .client-brand-text {
-  font-size: 20px;
+.brand-text-sify {
+  font-family: var(--font-sans);
+  font-size: 30px;
   font-weight: 800;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
+  color: var(--palette-cream);
+  line-height: 1;
   text-transform: lowercase;
 }
 
-.brand-sbi {
-  padding: 6px 14px;
+.sbi-logo-wrap {
+  display: inline-flex;
+  align-items: center;
   gap: var(--space-1);
 }
 
@@ -1619,130 +1610,28 @@ body.cursor-hover .cursor-ring {
   align-items: center;
 }
 
-.brand-sbi .client-brand-text {
-  font-size: 20px;
+.brand-text-sbi {
+  font-family: var(--font-sans);
+  font-size: 30px;
   font-weight: 800;
   letter-spacing: 0.08em;
-}
-
-.client-tag {
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  color: var(--accent);
-  background: var(--accent-subtle);
-  padding: 4px 10px;
-  border-radius: 2px;
-  letter-spacing: 0.05em;
-  border: 1px solid rgba(197, 155, 67, 0.25);
-  white-space: nowrap;
-}
-
-.client-card-body {
-  margin-bottom: var(--space-3);
-  flex-grow: 1;
-}
-
-.client-company-name {
-  font-family: var(--font-serif);
-  font-size: var(--text-h3);
-  color: var(--text-primary);
-  margin-bottom: var(--space-0-5);
-}
-
-.client-scope-title {
-  font-size: var(--text-sm);
-  font-weight: 600;
-  color: var(--palette-gold);
-  margin-bottom: var(--space-1);
-  line-height: 1.4;
-}
-
-.client-details {
-  font-size: var(--text-sm);
-  color: var(--text-secondary);
-  line-height: 1.55;
-  margin: 0;
-}
-
-.client-card-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: var(--space-2);
-  border-top: 1px solid var(--border-subtle);
-  margin-top: auto;
-}
-
-.client-meta-item {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.client-meta-label {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
-}
-
-.client-meta-value {
-  font-size: var(--text-xs);
   color: var(--palette-cream);
-  font-weight: 500;
-}
-
-.client-meta-right {
-  text-align: right;
-}
-
-/* Trust & Credential Metrics Bar */
-.about-clients-trust-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(10, 61, 51, 0.65);
-  border: 1px solid var(--border-subtle);
-  padding: var(--space-3) var(--space-4);
-  border-radius: 4px;
-}
-
-.trust-metric-cell {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-}
-
-.trust-metric-num {
-  font-family: var(--font-display);
-  font-size: var(--text-h2);
-  color: var(--accent);
-  font-weight: 700;
   line-height: 1;
 }
 
-.trust-metric-info {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.trust-metric-title {
-  font-size: var(--text-sm);
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.trust-metric-desc {
+.single-brand-name {
+  font-family: var(--font-mono);
   font-size: var(--text-xs);
-  color: var(--text-muted);
+  color: var(--text-secondary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-.trust-metric-divider {
+.single-box-sep {
   width: 1px;
-  height: 36px;
-  background-color: var(--border-subtle);
+  height: 56px;
+  background: linear-gradient(180deg, transparent 0%, var(--border-strong) 50%, transparent 100%);
+  flex-shrink: 0;
 }
 
 /* --------------------------------------------------------------------------
@@ -3179,12 +3068,8 @@ body.cursor-hover .cursor-ring {
     transform: none !important;
   }
 
-  .about-client-card {
+  .single-brand-item {
     transform: none !important;
-    transition: none !important;
-  }
-
-  .client-card-accent-line {
     transition: none !important;
   }
 
@@ -3284,14 +3169,15 @@ body.cursor-hover .cursor-ring {
     gap: var(--space-3);
   }
 
-  .about-clients-grid {
-    grid-template-columns: 1fr;
+  .single-box-brands {
+    flex-direction: column;
     gap: var(--space-3);
   }
 
-  .about-clients-header-split {
-    flex-direction: column;
-    align-items: flex-start;
+  .single-box-sep {
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--border-strong) 50%, transparent 100%);
   }
 
   .material-showcase-grid {
@@ -3374,14 +3260,17 @@ body.cursor-hover .cursor-ring {
     gap: var(--space-3);
   }
 
-  .about-clients-trust-bar {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-3);
+  .about-companies-single-box {
+    padding: var(--space-4) var(--space-3);
   }
 
-  .trust-metric-divider {
-    display: none;
+  .brand-text-amazon {
+    font-size: 26px;
+  }
+
+  .brand-text-sify,
+  .brand-text-sbi {
+    font-size: 24px;
   }
 
   .selected-works-grid,
